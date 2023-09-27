@@ -13,7 +13,7 @@
 ### Idiomas
   ##### Español (Nativo)
   ##### Catalàn (Nativo)
-  ##### Ingles 
+  ##### Ingles (B1)
 
 ### Competencias digitales
   ##### Libre Office / G-Suit / Pseint / BBDD sql 
