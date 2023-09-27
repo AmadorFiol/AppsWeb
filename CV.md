@@ -7,6 +7,8 @@
 ### Contacto
   ##### **Nº telefonico:** (+34) 680 93 12 91
   ##### **Correo electronico:** amfibo24@gmail.com
+###Redes
+ #### **GitHub:** [AmadorFiol](https://github.com/AmadorFiol)
 ### Educación y formación
   ##### **Educación Secundaria obligatoria (ESO):** 2018-2022 Colegio Sant Josep Obrer <sup>C.C</sup>
   ##### **FPGM de Sistemas microinformaticos y redes:** 2022-*Actualidad* Aula Balear <sup>S. Coop.</sup>
