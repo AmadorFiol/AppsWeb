@@ -11,12 +11,12 @@
   ##### **FPGM de Sistemas microinformaticos y redes:** 2022-Actualidad Aula Balear S. Coop.
 
 ### Idiomas
-  ##### Español (Nativo)
-  ##### Catalàn (Nativo)
+  ##### Español *(Nativo)*
+  ##### Catalàn *(Nativo)*
   ##### Ingles (B1)
 
 ### Competencias digitales
-  ##### Libre Office / G-Suit / Pseint / BBDD sql 
+  ##### Libre Office / G-Suit / Pseint / BBDD sql /
 
 ### Aficiones
  ##### Gimnasio / Videojuegos
