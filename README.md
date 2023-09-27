@@ -1,7 +1,6 @@
 # Curriculum
+## Amador Fiol Borel
 ### Información personal:
- ##### **Nombre:** Amador
- ##### **Apellidos:** Fiol Borel
  ##### **Localidad:** Islas Baleares, España
  ##### **Fecha de nacimiento:** 24/03/2006
 ### Contacto
