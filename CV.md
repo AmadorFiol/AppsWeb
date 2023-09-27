@@ -1,5 +1,5 @@
 # Curriculum
-![Test](https://myoctocat.com/assets/images/base-octocat.svg)
+![Test](https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo.png)
 ## Amador Fiol Borel
 ### Información personal:
  ##### **Localidad:** Islas Baleares, España
