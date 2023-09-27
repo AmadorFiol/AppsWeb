@@ -8,7 +8,7 @@
   ##### **Correo electronico:** amfibo24@gmail.com
 ### Educación y formación
   ##### **Educación Secundaria obligatoria (ESO):** 2018-2022 Colegio Sant Josep Obrer
-  ##### **FPGM de Sistemas microinformaticos y redes:** 2022-Actualidad Aula Balear S. Coop.
+  ##### **FPGM de Sistemas microinformaticos y redes:** 2022-*Actualidad* Aula Balear S. Coop.
 
 ### Idiomas
   ##### Español *(Nativo)*
