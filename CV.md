@@ -1,5 +1,5 @@
 # Curriculum
-![Test|50](https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo.png)
+![Test|10](https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo.png)
 ## Amador Fiol Borel
 ### Información personal:
  ##### **Localidad:** Islas Baleares, España
