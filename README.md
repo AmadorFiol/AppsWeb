@@ -3,6 +3,7 @@
  ##### **Nombre:** Amador
  ##### **Apellidos:** Fiol Borel
  ##### **Localidad:** Islas Baleares, España
+ ##### **Fecha de nacimiento:** 24/03/2006
 ### Contacto
   ##### **Nº telefonico:** (+34) 680 93 12 91
   ##### **Correo electronico:** amfibo24@gmail.com
