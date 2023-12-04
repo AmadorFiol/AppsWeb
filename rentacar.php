@@ -17,14 +17,20 @@ if (!$xml = file_get_contents($url)) {
 $fulldata=$xml->rows;
 //var_dump($fulldata);
 $i=0;
-$municipio=array();
+$relleno=array();
 foreach($fulldata->row as $data) {
-	$municipio[$i]=$data->municipi;
-	$postalcode[$i]=$data->adre_a_de_l_establiment;
-	$nombre[$i]=$data->denominacio_comercial;
-	$i++;
+	$municipio=(string) $data->municipi;
+	$adressa=$data->adre_a_de_l_establiment;
+	$postalcode = intval(preg_replace('/[^0-9]+/', '', $adressa), 10);
+	$nombre=$data->denominacio_comercial;
+	if (isset($rellenar[$municipio])) {
+        	   $rellenar[$municipio] = $postalcode;
+	    } else {
+	        $rellenar[$municipio] = $postalcode;
+	    }
+
 }
-var_dump($municipio);
+var_dump($rellenar);
 echo "<br>";
 //var_dump($postalcode);
 echo "<br>";
@@ -34,12 +40,16 @@ $municipio=isset($_GET["municipio"]) ? $_GET["municipio"] : "";
 $postalcode=isset($_GET["codigo_postal"]) ? $_GET["codigo_postal"] : "";
 $nombre=isset($_GET["nombre"]) ? $_GET["nombre"] : "";
 
-ksort()
+//ksort($municipio)
 ?>
 
 <from action="rentacar.php" method="get">
 	<label for="municipios">Elije el municipio:</label>
-	<select id="municipios" name="municipios>
+	<select id="municipios" name="municipios">
+		<?php foreach($data->municipi as $relleno[$municipio]){
+			echo "<option value=".$relleno[$municipio].">".$relleno[$municipio]."</option>";
+			}?>
+	</select>
 <?php
 //echo "Municipio: ".$municipio."<br>";
 //echo "Codigo postal: ".$postalcode."<br>";
