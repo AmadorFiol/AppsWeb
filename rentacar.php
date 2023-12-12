@@ -21,13 +21,13 @@ $rellenar = array();
 foreach ($fulldata->row as $data) {
 	$municipio = (string) $data->municipi;
 	$adressa = $data->adre_a_de_l_establiment;
-	$codigoPostal = intval(preg_replace('/[^0-9]+/', '', $adressa), 10);
-	if (isset($rellenar[$municipio])) {
-		$rellenar[$municipio][] = array("nombre_comercial" => $nombreComercial, "codigo_postal" => $codigoPostal);
-	} else {
-		$rellenar[$municipio] = array(array("nombre_comercial" => $nombreComercial, "codigo_postal" => $codigoPostal));
-	}
+	$postalcode = intval(preg_replace('/[^0-9]+/', '', $adressa), 10);
 	$nombre = $data->denominaci_comercial;
+	if (isset($rellenar[$municipio])) {
+		$rellenar[$municipio][] = array("nombre_comercial" => $nombre, "codigo_postal" => $postalcode);
+	} else {
+		$rellenar[$municipio] = array(array("nombre_comercial" => $nombre, "codigo_postal" => $postalcode));
+	}
 }
 var_dump($rellenar);
 echo "<br>";
