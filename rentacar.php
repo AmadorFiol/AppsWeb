@@ -29,7 +29,7 @@ foreach ($fulldata->row as $data) {
 		$rellenar[$municipio] = array(array("nombre_comercial" => $nombre, "codigo_postal" => $postalcode));
 	}
 }
-var_dump($rellenar);
+//var_dump($rellenar);
 echo "<br>";
 
 $municipio=isset($_GET["municipio"]) ? $_GET["municipio"] : "";
