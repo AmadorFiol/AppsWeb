@@ -50,6 +50,17 @@ ksort($rellenar)
 	}
 ?>
 </select>
+<br>
+<fieldset>
+	<legend>Selecciona un municipio:</legend>
+	<?php
+		foreach ($rellenar as $municipio => $establecimientos) {
+			echo "<input type=\"radio\" id=\"" . $municipio . "\" name=\"municipio\" value=\"" . $municipio . "\">";
+			echo "<label for=\"" . $municipio . "\">" . $municipio . "</label><br>";
+	}
+	?>
+</fieldset>
+<br>
 <?php
 //echo "Municipio: ".$municipio."<br>";
 //echo "Codigo postal: ".$postalcode."<br>";
