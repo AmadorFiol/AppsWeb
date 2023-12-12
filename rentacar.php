@@ -23,9 +23,9 @@ foreach ($fulldata->row as $data) {
 	$adressa = $data->adre_a_de_l_establiment;
 	$codigoPostal = intval(preg_replace('/[^0-9]+/', '', $adressa), 10);
 	if (isset($rellenar[$municipio])) {
-		$rellenar[$municipio][] = $codigoPostal;
+		$rellenar[$municipio][] = array("nombre_comercial" => $nombreComercial, "codigo_postal" => $codigoPostal);
 	} else {
-		$rellenar[$municipio] = array($codigoPostal);
+		$rellenar[$municipio] = array(array("nombre_comercial" => $nombreComercial, "codigo_postal" => $codigoPostal));
 	}
 	$nombre = $data->denominaci_comercial;
 }
