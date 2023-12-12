@@ -17,19 +17,18 @@ if (!$xml = file_get_contents($url)) {
 $fulldata=$xml->rows;
 //var_dump($fulldata);
 $i=0;
-$datos = array();
+$rellenar = array();
 foreach ($fulldata->row as $data) {
     $municipio = (string) $data->municipi;
     $adressa = $data->adre_a_de_l_establiment;
     $codigoPostal = intval(preg_replace('/[^0-9]+/', '', $adressa), 10);
     
-    if (isset($datos[$municipio])) {
-        $datos[$municipio][] = $codigoPostal;
+    if (isset($rellenar[$municipio])) {
+        $rellenar[$municipio][] = $codigoPostal;
     } else {
         $datos[$municipio] = array($codigoPostal);
     }
 }
-var_dump($datos);
 var_dump($rellenar);
 echo "<br>";
 //var_dump($postalcode);
