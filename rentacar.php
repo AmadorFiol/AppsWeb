@@ -26,7 +26,7 @@ foreach ($fulldata->row as $data) {
     if (isset($rellenar[$municipio])) {
         $rellenar[$municipio][] = $codigoPostal;
     } else {
-        $datos[$municipio] = array($codigoPostal);
+        $rellenar[$municipio] = array($codigoPostal);
     }
 }
 var_dump($rellenar);
