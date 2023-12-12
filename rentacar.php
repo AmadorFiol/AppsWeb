@@ -19,21 +19,21 @@ $fulldata=$xml->rows;
 $i=0;
 $rellenar = array();
 foreach ($fulldata->row as $data) {
-    $municipio = (string) $data->municipi;
-    $adressa = $data->adre_a_de_l_establiment;
-    $codigoPostal = intval(preg_replace('/[^0-9]+/', '', $adressa), 10);
-    
-    if (isset($rellenar[$municipio])) {
-        $rellenar[$municipio][] = $codigoPostal;
-    } else {
-        $rellenar[$municipio] = array($codigoPostal);
-    }
+	$municipio = (string) $data->municipi;
+	$adressa = $data->adre_a_de_l_establiment;
+	$codigoPostal = intval(preg_replace('/[^0-9]+/', '', $adressa), 10);
+	if (isset($rellenar[$municipio])) {
+		$rellenar[$municipio][] = $codigoPostal;
+	} else {
+		$rellenar[$municipio] = array($codigoPostal);
+	}
+	$nombre = $data->denominaci_comercial;
 }
-var_dump($rellenar);
+//var_dump($rellenar);
 echo "<br>";
 //var_dump($postalcode);
 echo "<br>";
-//var_dump($nombre);
+var_dump($nombre);
 
 $municipio=isset($_GET["municipio"]) ? $_GET["municipio"] : "";
 $postalcode=isset($_GET["codigo_postal"]) ? $_GET["codigo_postal"] : "";
