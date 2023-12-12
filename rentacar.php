@@ -29,11 +29,8 @@ foreach ($fulldata->row as $data) {
 	}
 	$nombre = $data->denominaci_comercial;
 }
-//var_dump($rellenar);
+var_dump($rellenar);
 echo "<br>";
-//var_dump($postalcode);
-echo "<br>";
-var_dump($nombre);
 
 $municipio=isset($_GET["municipio"]) ? $_GET["municipio"] : "";
 $postalcode=isset($_GET["codigo_postal"]) ? $_GET["codigo_postal"] : "";
