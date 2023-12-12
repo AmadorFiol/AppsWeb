@@ -39,7 +39,7 @@ $municipio=isset($_GET["municipio"]) ? $_GET["municipio"] : "";
 $postalcode=isset($_GET["codigo_postal"]) ? $_GET["codigo_postal"] : "";
 $nombre=isset($_GET["nombre"]) ? $_GET["nombre"] : "";
 
-//ksort($municipio)
+ksort($rellenar)
 ?>
 
 <from action="rentacar.php" method="get">
