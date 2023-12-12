@@ -44,11 +44,13 @@ ksort($municipio)
 
 <from action="rentacar.php" method="get">
 	<label for="municipios">Elije el municipio:</label>
-	<select id="municipios" name="municipios">
-		<?php foreach($data->municipi as $relleno[$municipio]){
-			echo "<option value=".$relleno[$municipio].">".$relleno[$municipio]."</option>";
-			}?>
-	</select>
+	<select id="municipios" name="municipio">
+    <?php 
+    foreach ($datos as $municipio => $codigosPostales) {
+        echo "<option value=\"$municipio\">$municipio</option>";
+    }
+    ?>
+</select>
 <?php
 //echo "Municipio: ".$municipio."<br>";
 //echo "Codigo postal: ".$postalcode."<br>";
