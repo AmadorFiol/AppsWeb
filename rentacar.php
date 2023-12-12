@@ -61,6 +61,7 @@ ksort($rellenar)
 	?>
 </fieldset>
 <br>
+	Nombre:<input type="text" name="nom" value="<?php echo $nom; ?>">
 <?php
 //echo "Municipio: ".$municipio."<br>";
 //echo "Codigo postal: ".$postalcode."<br>";
