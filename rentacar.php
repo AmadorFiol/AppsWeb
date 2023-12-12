@@ -39,14 +39,14 @@ $municipio=isset($_GET["municipio"]) ? $_GET["municipio"] : "";
 $postalcode=isset($_GET["codigo_postal"]) ? $_GET["codigo_postal"] : "";
 $nombre=isset($_GET["nombre"]) ? $_GET["nombre"] : "";
 
-ksort($municipio)
+//ksort($municipio)
 ?>
 
 <from action="rentacar.php" method="get">
 	<label for="municipios">Elije el municipio:</label>
 	<select id="municipios" name="municipio">
     <?php 
-    foreach ($datos as $municipio => $codigosPostales) {
+    foreach ($rellenar as $municipio => $codigosPostales) {
         echo "<option value=\"$municipio\">$municipio</option>";
     }
     ?>
