@@ -40,11 +40,11 @@ ksort($rellenar)
 ?>
 
 <from action="rentacar.php" method="get">
-	<label for="municipios">Elije el municipio:</label>
-	<select id="municipios" name="municipio">
+	<label for="postalcode">Elije el codigo postal:</label>
+	<select id="postalcodes" name="postalcode">
     <?php 
-    foreach ($rellenar as $municipio => $codigosPostales) {
-        echo "<option value=\"$municipio\">$municipio</option>";
+    foreach ($rellenar as $postalcode => $municipios) {
+        echo "<option value=\"$postalcode\">$postalcode</option>";
     }
     ?>
 </select>
