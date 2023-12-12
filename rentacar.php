@@ -50,7 +50,7 @@ ksort($rellenar)
 	}
 ?>
 </select>
-<php
+<?php
 //echo "Municipio: ".$municipio."<br>";
 //echo "Codigo postal: ".$postalcode."<br>";
 //echo "Nombre: ".$nombre."<br>";
