@@ -63,9 +63,19 @@ ksort($rellenar)
 <br>
 	Nombre de la empresa:<input type="text" name="nombre" value="<?php echo $nombre; ?>">
 <?php
-//echo "Municipio: ".$municipio."<br>";
-//echo "Codigo postal: ".$postalcode."<br>";
-//echo "Nombre: ".$nombre."<br>";
+if(isset($_GET["municipio"]) && isset($_GET["postalcode"])) {
+	$municipioSeleccionado = $_GET["municipio"];
+	$codigoPostalSeleccionado = $_GET["postalcode"];
+	echo "<h2>Establecimientos en " . $municipioSeleccionado . " con código postal " . $codigoPostalSeleccionado . "</h2>";
+	echo "<table border='1'>";
+	echo "<tr><th>Nombre Comercial</th></tr>";
+	foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
+	    if ($establecimiento["codigo_postal"] == $codigoPostalSeleccionado) {
+		echo "<tr><td>" . $establecimiento["nombre_comercial"] . "</td></tr>";
+	    }
+	}
+	echo "</table>";
+}
 	?>
 
 </body>
