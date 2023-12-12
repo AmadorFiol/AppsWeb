@@ -43,7 +43,7 @@ ksort($rellenar)
 	<label for="municipios">Elije el municipio:</label>
 	<select id="municipios" name="municipio">
 	<?php 
-	foreach ($datos as $municipio => $codigosPostales) {
+	foreach ($datos as $municipio => $empresas) {
 		echo "<option value=\"$municipio\">$municipio</option>";
 	}
 	?>
