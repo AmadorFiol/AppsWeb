@@ -23,11 +23,13 @@ foreach ($fulldata->row as $data) {
 	$adressa = $data->adre_a_de_l_establiment;
 	$postalcode = intval(preg_replace('/[^0-9]+/', '', $adressa), 10);
 	$nombre = $data->denominaci_comercial;
+	$cantidadCoches = (string) $data->nombre_de_vehicles;
+
 	if (isset($rellenar[$municipio])) {
-		$rellenar[$municipio][] = array("nombre_comercial" => $nombre, "codigo_postal" => $postalcode);
-	} else {
-		$rellenar[$municipio] = array(array("nombre_comercial" => $nombre, "codigo_postal" => $postalcode));
-	}
+	    $rellenar[$municipio][] = array("nombre_comercial" => $nombre, "codigo_postal" => $postalcode, "cantidad_coches" => $cantidadCoches);
+    } else {
+	    $rellenar[$municipio] = array(array("nombre_comercial" => $nombre, "codigo_postal" => $postalcode, "cantidad_coches" => $cantidadCoches));
+    }
 }
 //var_dump($rellenar);
 echo "<br>";
@@ -68,17 +70,17 @@ if(isset($_POST["municipio"]) || isset($_POST["postalcode"])) {
 	$postalcodeSeleccionado = $_POST["postalcode"];
 	echo "<h2>Establecimientos en " . $municipioSeleccionado . " con código postal " . $postalcodeSeleccionado . "</h2>";
 	echo "<table border='1'>";
-	echo "<tr><th>Nombre Comercial</th><th>Municipio</th></tr>";
+	echo "<tr><th>Nombre Comercial</th><th>Municipio</th><th>Cantidad de coches disponibles</th></tr>";
 	if (!empty($municipioSeleccionado)) {
 		foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
 			if ($establecimiento["codigo_postal"] == $postalcodeSeleccionado) {
-				echo "<tr><td>" . $establecimiento["nombre_comercial"] . "</td><td>" . $municipioSeleccionado . "</td></tr>";
+				echo "<tr><td>" . $establecimiento["nombre_comercial"] . "</td><td>" . $municipioSeleccionado . "</td><td>" . $establecimiento["cantidad_coches"] . "</td></tr>";
 			}
 		}
 	} else {
 		foreach ($rellenar as $municipio => $establecimientos) {
 			foreach ($establecimientos as $establecimiento) {
-				echo "<tr><td>" . $establecimiento["nombre_comercial"] . "</td><td>" . $municipio . "</td></tr>";
+				echo "<tr><td>" . $establecimiento["nombre_comercial"] . "</td><td>" . $municipio . "</td><td>" . $establecimiento["cantidad_coches"] . "</td></tr>";
 			}
 		}
 	}
