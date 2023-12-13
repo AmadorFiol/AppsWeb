@@ -53,10 +53,10 @@ ksort($rellenar)
 <br>
 <fieldset>
 	<legend>Selecciona un municipio:</legend>
-	<input type="radio" id="municipio1" name="municipio" value="municipio1">
+	<input type="radio" id="municipios" name="municipio" value="municipios">
 	<?php
 		foreach ($rellenar as $municipio => $establecimientos) {
-			echo "<label for=$municipio>.$municipio.</label><br>";
+			echo "<label for=$municipio>$municipio</label><br>";
 	}
 	?>
 </fieldset>
