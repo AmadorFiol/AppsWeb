@@ -65,10 +65,10 @@ ksort($rellenar)
 <br>
 	Nombre de la empresa:<input type="text" name="nombre" value="<?php echo $nombre; ?>">
 <?php
-if(isset($_POST["municipio"]) || isset($_POST["postalcode"])) {
+if(isset($_POST["municipio"])) {
 	$municipioSeleccionado = $_POST["municipio"];
 	$postalcodeSeleccionado = $_POST["postalcode"];
-	echo "<h2>Establecimientos en " . $municipioSeleccionado . " con código postal " . $postalcodeSeleccionado . "</h2>";
+	echo "<h2>Establecimientos en " . $municipioSeleccionado . "</h2>";
 	echo "<table border='1'>";
 	echo "<tr><th>Nombre Comercial</th><th>Municipio</th><th>Cantidad de coches disponibles</th></tr>";
 	if (!empty($municipioSeleccionado)) {
