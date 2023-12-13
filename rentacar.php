@@ -56,8 +56,7 @@ ksort($rellenar)
 	<input type="radio" id="municipios" name="municipio" value="municipios">
 	<?php
 		foreach ($rellenar as $municipio => $establecimientos) {
-			echo "<label for=$municipio>$municipio</label><br>";
-	}
+			echo "<label for=\"" . $municipio . "\">" . $municipio . "</label><br>"	}
 	?>
 </fieldset>
 <br>
