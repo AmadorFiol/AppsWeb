@@ -32,14 +32,14 @@ foreach ($fulldata->row as $data) {
 //var_dump($rellenar);
 echo "<br>";
 
-$municipio=isset($_GET["municipio"]) ? $_GET["municipio"] : "";
-$postalcode=isset($_GET["codigo_postal"]) ? $_GET["codigo_postal"] : "";
-$nombre=isset($_GET["nombre"]) ? $_GET["nombre"] : "";
+$municipio=isset($_POST["municipio"]) ? $_POST["municipio"] : "";
+$postalcode=isset($_POST["codigo_postal"]) ? $_POST["codigo_postal"] : "";
+$nombre=isset($_POST["nombre"]) ? $_POST["nombre"] : "";
 
 ksort($rellenar)
 ?>
 
-<form action="rentacar.php" method="get">
+<form action="rentacar.php" method="post">
 <label for="postalcodes">Elige el código postal:</label>
 <select id="postalcodes" name="postalcode">
 <?php 
@@ -63,9 +63,9 @@ ksort($rellenar)
 <br>
 	Nombre de la empresa:<input type="text" name="nombre" value="<?php echo $nombre; ?>">
 <?php
-if(isset($_GET["municipio"]) || isset($_GET["postalcode"])) {
-	$municipioSeleccionado = $_GET["municipio"];
-	$postalcodeSeleccionado = $_GET["postalcode"];
+if(isset($_POST["municipio"]) || isset($_POST["postalcode"])) {
+	$municipioSeleccionado = $_POST["municipio"];
+	$postalcodeSeleccionado = $_POST["postalcode"];
 	echo "<h2>Establecimientos en " . $municipioSeleccionado . " con código postal " . $postalcodeSeleccionado . "</h2>";
 	echo "<table border='1'>";
 	echo "<tr><th>Nombre Comercial</th></tr>";
