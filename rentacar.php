@@ -59,23 +59,23 @@ ksort($rellenar)
 </fieldset>
 <?php
 	$postalcodes = array();
-		foreach ($rellenar as $municipio => $establecimientos) {
-			foreach ($establecimientos as $establecimiento) {
-				foreach ($establecimiento['codigo_postal'] as $cp) {
-					if (in_array(!$cp, $postalcodes)){
-						$postalcodes[] = $cp;
-					}
+	foreach ($rellenar as $municipio => $establecimientos) {
+		foreach ($establecimientos as $establecimiento) {
+			foreach ($establecimiento['codigo_postal'] as $cp) {
+				if (!in_array($cp, $postalcodes)) {
+					$postalcodes[] = $cp;
 				}
 			}
 		}
-		sort($postalcodes, SORT_NUMERIC);
-		echo "<label for=\"codigo_postal\">Selecciona un código postal:</label>";
-		echo "<select name=\"codigo_postal\" id=\"codigo_postal\">";
-		echo "<option value=\"\">Selecciona un código postal</option>";
-		foreach ($postalcodes as $cp) {
-			echo "<option value=\"$cp\">$cp</option>";
-		}
-		echo "</select>";
+	}
+	sort($postalcodes, SORT_NUMERIC);
+	echo "<label for=\"codigo_postal\">Selecciona un código postal:</label>";
+	echo "<select name=\"codigo_postal\" id=\"codigo_postal\">";
+	echo "<option value=\"\">Selecciona un código postal</option>";
+	foreach ($postalcodes as $cp) {
+		echo "<option value=\"$cp\">$cp</option>";
+	}
+	echo "</select>";
 ?>
 <br>
 <input type="submit" value="Filtrar">
