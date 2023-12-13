@@ -66,16 +66,25 @@ ksort($rellenar)
 if(isset($_POST["municipio"]) || isset($_POST["postalcode"])) {
 	$municipioSeleccionado = $_POST["municipio"];
 	$postalcodeSeleccionado = $_POST["postalcode"];
+	echo "<h2>Establecimientos en " . $municipioSeleccionado . " con código postal " . $postalcodeSeleccionado . "</h2>";
 	echo "<table border='1'>";
-	echo "<tr><th>Nombre Comercial</th></tr>";
-	foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
-	    if ($establecimiento["municipio"] == $municipioSeleccionado) {
-		echo "<tr><td>".$establecimiento["nombre_comercial"]."</td></tr>";
-	    }
+	echo "<tr><th>Nombre Comercial</th><th>Municipio</th></tr>";
+	if (!empty($municipioSeleccionado)) {
+		foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
+			if ($establecimiento["codigo_postal"] == $postalcodeSeleccionado) {
+				echo "<tr><td>" . $establecimiento["nombre_comercial"] . "</td><td>" . $municipioSeleccionado . "</td></tr>";
+			}
+		}
+	} else {
+		foreach ($rellenar as $municipio => $establecimientos) {
+			foreach ($establecimientos as $establecimiento) {
+				echo "<tr><td>" . $establecimiento["nombre_comercial"] . "</td><td>" . $municipio . "</td></tr>";
+			}
+		}
 	}
 	echo "</table>";
 }
-	?>
+?>
 
 </body>
 </html>
