@@ -70,7 +70,7 @@ if(isset($_POST["municipio"]) || isset($_POST["postalcode"])) {
 	echo "<table border='1'>";
 	echo "<tr><th>Nombre Comercial</th></tr>";
 	foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
-	    if ($establecimiento["codigo_postal"] == $postalcodeSeleccionado) {
+	    if ($establecimiento["municipio"] == $municipioSeleccionado) {
 		echo "<tr><td>" . $establecimiento["nombre_comercial"] . "</td></tr>";
 	    }
 	}
