@@ -74,7 +74,6 @@ if (isset($_POST["municipio"])) {
     echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
     
     foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
-        // Filtrar por municipio y código postal
         if ($establecimiento["codigo_postal"] == $codigoPostal) {
             echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
         }
