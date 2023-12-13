@@ -38,7 +38,7 @@ foreach ($fulldata->row as $data) {
 		$rellenar[$municipio] = array($establecimiento);
 	}
 }
-//var_dump($rellenar);
+var_dump($rellenar);
 echo "<br>";
 
 $municipio=isset($_POST["municipio"]) ? $_POST["municipio"] : "";
