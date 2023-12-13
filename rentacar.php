@@ -53,10 +53,10 @@ ksort($rellenar)
 <br>
 <fieldset>
 	<legend>Selecciona un municipio:</legend>
+	<input type="radio" id="municipio1" name="municipio" value="municipio1">
 	<?php
 		foreach ($rellenar as $municipio => $establecimientos) {
-			echo "<input type=\"radio\" id=\"" . $municipio . "\" name=\"municipio\" value=\"" . $municipio . "\">";
-			echo "<label for=\"" . $municipio . "\">" . $municipio . "</label><br>";
+			echo "<label for=$municipio>.$municipio.</label><br>";
 	}
 	?>
 </fieldset>
@@ -70,7 +70,7 @@ if(isset($_POST["municipio"]) || isset($_POST["postalcode"])) {
 	echo "<tr><th>Nombre Comercial</th></tr>";
 	foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
 	    if ($establecimiento["municipio"] == $municipioSeleccionado) {
-		echo "<tr><td>" . $establecimiento["nombre_comercial"] . "</td></tr>";
+		echo "<tr><td>".$establecimiento["nombre_comercial"]."</td></tr>";
 	    }
 	}
 	echo "</table>";
