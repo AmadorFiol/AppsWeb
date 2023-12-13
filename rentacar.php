@@ -84,18 +84,22 @@ Nombre de la empresa:<input type="text" name="nombre" value="<?php echo $nombre;
 </form>
 <?php
 if (isset($_POST["municipio"])) {
-    $municipioSeleccionado = $_POST["municipio"];
-    $postalcodeSeleccionado = $_POST["codigo_postal"];
+	$municipioSeleccionado = $_POST["municipio"];
+	$postalcodeSeleccionado = $_POST["codigo_postal"];
+	$nombreSeleccionado = $_POST["nombre"];
 
-    echo "<h2>Establecimientos en " . $municipioSeleccionado . "</h2>";
-    echo "<table border='1'>";
-    echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
+	echo "<h2>Establecimientos en " . $municipioSeleccionado . "</h2>";
+	echo "<table border='1'>";
+	echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
     
-    foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
-        echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
-    }
-
-    echo "</table>";
+	foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
+		echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
+		//filtro nombre
+		if ($nombreSeleccionado === "" || stripos($establecimiento['nombre_comercial'], $nombreSeleccionado) !== false) {
+			echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
+		}
+	}
+	echo "</table>";
 }
 ?>
 </body>
