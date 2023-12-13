@@ -62,7 +62,9 @@ ksort($rellenar)
 		foreach ($rellenar as $municipio => $establecimientos) {
 			foreach ($establecimientos as $establecimiento) {
 				foreach ($establecimiento['codigo_postal'] as $cp) {
-					$postalcodes[] = $cp;
+					if (inarray(!$cp, $postalcodes)){
+						$postalcodes[] = $cp;
+					}
 				}
 			}
 		}
