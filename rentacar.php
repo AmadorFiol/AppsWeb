@@ -41,27 +41,17 @@ $nombre=isset($_POST["nombre"]) ? $_POST["nombre"] : "";
 ksort($rellenar)
 ?>
 
-<form action="rentacar.php" id="form" method="post">
-<label for="postalcodes">Elige el código postal:</label>
-<select id="postalcodes" name="postalcode">
-<?php 
-	foreach ($rellenar as $municipio => $establecimientos) {
-		foreach ($establecimientos as $establecimiento) {
-			echo "<option value=\"" . $establecimiento["codigo_postal"] . "\">" . $establecimiento["codigo_postal"] . "</option>";
-		}
-	}
-?>
-</select>
-<br>
-<fieldset>
-	<legend>Selecciona un municipio:</legend>
-	<?php
+<form action="rentacar.php" method="post">
+	<fieldset>
+		<legend>Selecciona un municipio:</legend>
+		<?php
 		foreach ($rellenar as $municipio => $establecimientos) {
 			echo "<input type=\"radio\" id=\"" . $municipio . "\" name=\"municipio\" value=\"" . $municipio . "\">";
 			echo "<label for=\"" . $municipio . "\">" . $municipio . "</label><br>";
 		}
-	?>
-</fieldset>
+		?>
+	</fieldset>
+	<input type="submit" value="Filtrar">
 </form>
 <br>
 	Nombre de la empresa:<input type="text" name="nombre" value="<?php echo $nombre; ?>">
