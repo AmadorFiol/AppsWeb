@@ -21,7 +21,7 @@ $rellenar = array();
 foreach ($fulldata->row as $data) {
     $municipio = (string) $data->municipi;
     $adressa = $data->adre_a_de_l_establiment;
-    $postalcode = intval(preg_replace('/[^0-9]+/', '', $adressa), 10);
+    $postalcode = intval(preg_match('/\b\d{5}\b/', '', $adressa), 10);
     $nombre = $data->denominaci_comercial;
     $cantidadCoches = (string) $data->nombre_de_vehicles;
 
