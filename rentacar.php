@@ -47,7 +47,7 @@ $nombre=isset($_POST["nombre"]) ? $_POST["nombre"] : "";
 ksort($rellenar)
 ?>
 
-<form method="post" action="rentcar.php">
+<form method="post" action="rentacar.php">
     <label for="municipio">Selecciona un municipio:</label>
     <fieldset>
         <legend>Selecciona un municipio:</legend>
