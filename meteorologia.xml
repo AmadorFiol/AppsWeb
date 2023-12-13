@@ -1,0 +1,20 @@
+<Dias>
+<Lunes>
+<Horas>
+<hora id="0000">
+<clima>Soleado</clima>
+<temperatura>30º</temperatura>
+<viento>10K/h</viento>
+</hora>
+<hora id="0100">
+<clima>Nublado</clima>
+<temperatura>28º</temperatura>
+<viento>15K/h</viento>
+</hora>
+</horas>
+<temperatura>27º</temperatura>
+<viento>13K/h</viento>
+</Lunes>
+<Martes>
+</Martes>
+</Dias>
