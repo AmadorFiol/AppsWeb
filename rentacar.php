@@ -39,7 +39,7 @@ $nombre=isset($_POST["nombre"]) ? $_POST["nombre"] : "";
 ksort($rellenar)
 ?>
 
-<form action="rentacar.php" method="post">
+<form action="rentacar.php" id="form" method="post">
 <label for="postalcodes">Elige el código postal:</label>
 <select id="postalcodes" name="postalcode">
 <?php 
@@ -85,6 +85,19 @@ if(isset($_POST["municipio"]) || isset($_POST["postalcode"])) {
 	echo "</table>";
 }
 ?>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	document.getElementById('postalcodes').addEventListener('change', function() {
+		document.getElementById('form').submit();
+	});
+	var radios = document.querySelectorAll('input[name="municipio"]');
+	radios.forEach(function(radio) {
+		radio.addEventListener('change', function() {
+			document.getElementById('form').submit();
+		});
+	});
+});
+</script>
 
 </body>
 </html>
