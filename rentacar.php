@@ -62,44 +62,20 @@ ksort($rellenar)
 		}
 	?>
 </fieldset>
+</form>
 <br>
 	Nombre de la empresa:<input type="text" name="nombre" value="<?php echo $nombre; ?>">
 <?php
-if(isset($_POST["municipio"])) {
+if (isset($_POST["municipio"])) {
 	$municipioSeleccionado = $_POST["municipio"];
-	$postalcodeSeleccionado = $_POST["postalcode"];
 	echo "<h2>Establecimientos en " . $municipioSeleccionado . "</h2>";
 	echo "<table border='1'>";
-	echo "<tr><th>Nombre Comercial</th><th>Municipio</th><th>Cantidad de coches disponibles</th></tr>";
-	if (!empty($municipioSeleccionado)) {
-		foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
-			if ($establecimiento["codigo_postal"] == $postalcodeSeleccionado) {
-				echo "<tr><td>" . $establecimiento["nombre_comercial"] . "</td><td>" . $municipioSeleccionado . "</td><td>" . $establecimiento["cantidad_coches"] . "</td></tr>";
-			}
-		}
-	} else {
-		foreach ($rellenar as $municipio => $establecimientos) {
-			foreach ($establecimientos as $establecimiento) {
-				echo "<tr><td>" . $establecimiento["nombre_comercial"] . "</td><td>" . $municipio . "</td><td>" . $establecimiento["cantidad_coches"] . "</td></tr>";
-			}
-		}
+	echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th></tr>";
+	foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
+		echo "<tr><td>" . $establecimiento["nombre_comercial"] . "</td><td>" . $establecimiento["cantidad_coches"] . "</td></tr>";
 	}
 	echo "</table>";
 }
 ?>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-	document.getElementById('postalcodes').addEventListener('change', function() {
-		document.getElementById('form').submit();
-	});
-	var radios = document.querySelectorAll('input[name="municipio"]');
-	radios.forEach(function(radio) {
-		radio.addEventListener('change', function() {
-			document.getElementById('form').submit();
-		});
-	});
-});
-</script>
-
 </body>
 </html>
