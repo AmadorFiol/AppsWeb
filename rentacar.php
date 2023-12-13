@@ -67,14 +67,14 @@ ksort($rellenar)
 <?php
 if (isset($_POST["municipio"])) {
     $municipioSeleccionado = $_POST["municipio"];
-    $codigoPostal = $_POST["codigo_postal"];
+    $postalcodeSeleccionado = $_POST["codigo_postal"];
 
     echo "<h2>Establecimientos en " . $municipioSeleccionado . "</h2>";
     echo "<table border='1'>";
     echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
     
     foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
-        if ($establecimiento["codigo_postal"] == $codigoPostal) {
+        if ($establecimiento["codigo_postal"] == $postalcodeSeleccionado || $establecimiento["municipio"] == $municipioSeleccionado) {
             echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
         }
     }
