@@ -63,7 +63,7 @@ ksort($rellenar)
 <br>
 	Nombre de la empresa:<input type="text" name="nombre" value="<?php echo $nombre; ?>">
 <?php
-if(isset($_GET["municipio"]) && isset($_GET["postalcode"])) {
+if(isset($_GET["municipio"]) || isset($_GET["postalcode"])) {
 	$municipioSeleccionado = $_GET["municipio"];
 	$postalcodeSeleccionado = $_GET["postalcode"];
 	echo "<h2>Establecimientos en " . $municipioSeleccionado . " con código postal " . $postalcodeSeleccionado . "</h2>";
