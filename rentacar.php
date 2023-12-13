@@ -74,9 +74,7 @@ if (isset($_POST["municipio"])) {
     echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
     
     foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
-        if ($establecimiento["codigo_postal"] == $postalcodeSeleccionado || $establecimiento["municipio"] == $municipioSeleccionado) {
-            echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
-        }
+        echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
     }
 
     echo "</table>";
