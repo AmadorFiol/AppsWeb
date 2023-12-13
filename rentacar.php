@@ -60,9 +60,9 @@ if (isset($_POST["municipio"])) {
 	$municipioSeleccionado = $_POST["municipio"];
 	echo "<h2>Establecimientos en " . $municipioSeleccionado . "</h2>";
 	echo "<table border='1'>";
-	echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Direccion</th></tr>";
+	echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
 	foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
-		echo "<tr><td>" . $establecimiento["nombre_comercial"] . "</td><td>" . $establecimiento["cantidad_coches"] . "</td><td>" . $adressa . "</td></tr>";
+		echo "<tr><td>" . $establecimiento["nombre_comercial"] . "</td><td>" . $establecimiento["cantidad_coches"] . "</td><td>" . $establecimiento["direccion"] . "</td></tr>";
 	}
 	echo "</table>";
 }
