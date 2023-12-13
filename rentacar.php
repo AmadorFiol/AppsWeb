@@ -37,7 +37,7 @@ foreach ($fulldata->row as $data) {
 	    $rellenar[$municipio] = array($establecimiento);
     }
 }
-var_dump($rellenar);
+//var_dump($rellenar);
 echo "<br>";
 
 $municipio=isset($_POST["municipio"]) ? $_POST["municipio"] : "";
@@ -47,7 +47,7 @@ $nombre=isset($_POST["nombre"]) ? $_POST["nombre"] : "";
 ksort($rellenar)
 ?>
 
-<form action="otherrentacar.php" method="post">
+<form action="rentacar.php" method="post">
 	<fieldset>
 		<legend>Selecciona un municipio:</legend>
 		<?php
