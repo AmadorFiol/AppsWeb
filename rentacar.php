@@ -61,13 +61,22 @@ ksort($rellenar)
 	<select name="codigo_postal" id="codigo_postal">
 		<option value="">Selecciona un código postal</option>
 			<?php
-				foreach ($rellenar as $municipio => $establecimientos) {
-					foreach ($establecimientos as $establecimiento) {
-						foreach ($establecimiento['codigo_postal'] as $cp) {
-							echo "<option value=\"$cp\">$cp</option>";
+				$postalcodes = array();
+					foreach ($rellenar as $municipio => $establecimientos) {
+						foreach ($establecimientos as $establecimiento) {
+							foreach ($establecimiento['codigo_postal'] as $cp) {
+								$postalcodes[] = $cp;
+							}
 						}
 					}
+				sort($postalcodes, SORT_NUMERIC);
+				echo "<label for=\"codigo_postal\">Selecciona un código postal:</label>";
+				echo "<select name=\"codigo_postal\" id=\"codigo_postal\">";
+				echo "<option value=\"\">Selecciona un código postal</option>";
+				foreach ($postalcodes as $cp) {
+					echo "<option value=\"$cp\">$cp</option>";
 				}
+				echo "</select>";
 			?>
 	</select>
 <br>
