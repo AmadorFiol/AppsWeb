@@ -28,7 +28,7 @@ foreach ($fulldata->row as $data) {
 	if (isset($rellenar[$municipio])) {
 	    $rellenar[$municipio][] = array("nombre_comercial" => $nombre, "codigo_postal" => $postalcode, "cantidad_coches" => $cantidadCoches);
     } else {
-	    $rellenar[$municipio] = array(array("nombre_comercial" => $nombre, "codigo_postal" => $postalcode, $establecimiento["direccion"] => $cantidadCoches));
+	    $rellenar[$municipio] = array(array("nombre_comercial" => $nombre, "codigo_postal" => $postalcode, $establecimiento["cantidad_coches"] => $cantidadCoches, $establecimiento["direccion"] => $adressa));
     }
 }
 //var_dump($rellenar);
