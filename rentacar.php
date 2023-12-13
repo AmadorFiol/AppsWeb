@@ -66,7 +66,6 @@ ksort($rellenar)
 if(isset($_POST["municipio"]) || isset($_POST["postalcode"])) {
 	$municipioSeleccionado = $_POST["municipio"];
 	$postalcodeSeleccionado = $_POST["postalcode"];
-	echo "<h2>Establecimientos en " . $municipioSeleccionado . " con código postal " . $postalcodeSeleccionado . "</h2>";
 	echo "<table border='1'>";
 	echo "<tr><th>Nombre Comercial</th></tr>";
 	foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
