@@ -90,7 +90,7 @@ ksort($rellenar)
 <br>
 <?php
 echo "<table>";
-echo "<h2>Establecimientos en " . $municipioSeleccionado . " o " . $codigoPostalSeleccionado . "</h2>";
+
 echo "<table border='1'>";
 	
 	if ($_POST["nombre_comercial"]!="") {
@@ -99,7 +99,7 @@ echo "<table border='1'>";
 		foreach ($rellenar as $municipio => $establecimientos) {
 			foreach ($establecimientos as $establecimiento) {
 				if (stripos($establecimiento['nombre_comercial'], $nombreEmpresa) !== false) {
-          				echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>"
+          				echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
 					}
 			}
 		}
@@ -108,6 +108,7 @@ echo "<table border='1'>";
 
 		
 	elseif ($_POST["municipio"]!="") {
+		echo "<h2>Establecimientos en " . $municipioSeleccionado . "</h2>";
 		echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
 		foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
 			echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
@@ -117,6 +118,7 @@ echo "<table border='1'>";
 		foreach ($rellenar as $municipio => $establecimientos) {
 			foreach ($establecimientos as $establecimiento) {
 				if (in_array($codigoPostalSeleccionado, $establecimiento['codigo_postal'])) {
+					echo "<h2>Establecimientos en " . $codigoPostalSeleccionado . "</h2>
 					echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
 					echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
 				}
