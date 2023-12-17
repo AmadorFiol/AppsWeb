@@ -102,7 +102,6 @@ foreach ($rellenar as $municipio => $establecimientos) {
 	
 	if (isset($_POST["municipio"])) {
 		$municipioSeleccionado = $_POST["municipio"];
-		$postalcodeSeleccionado = $_POST["codigo_postal"];
 		$nombreSeleccionado =$nombreSeleccionado = strtoupper($_POST["nombre"]);
 		echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
 		foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
