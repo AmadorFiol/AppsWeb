@@ -92,7 +92,9 @@ ksort($rellenar)
 echo "<table>";
 
 echo "<table border='1'>";
-	
+
+
+	//Filtro nombre
 	if ($_POST["nombre_comercial"]!="") {
 		echo "<h2>Resultados de la búsqueda por nombre:</h2>";
 		echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
@@ -106,7 +108,7 @@ echo "<table border='1'>";
 	}
 
 
-		
+	//Filtro municipio
 	elseif ($_POST["municipio"]!="") {
 		echo "<h2>Establecimientos en " . $municipioSeleccionado . "</h2>";
 		echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
@@ -114,6 +116,9 @@ echo "<table border='1'>";
 			echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
 		}
 	}
+
+
+	//Filtro codigo postal
 	elseif ($_POST["codigo_postal"]!="") {
 		echo "<h2>Establecimientos en " . $codigoPostalSeleccionado . "</h2>";
 		echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
