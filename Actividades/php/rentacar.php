@@ -103,7 +103,7 @@ foreach ($rellenar as $municipio => $establecimientos) {
 }
 
 echo "</table>";
-	/*
+	
 	if (isset($_POST["municipio"])) {
 		$municipioSeleccionado = $_POST["municipio"];
 		$postalcodeSeleccionado = $_POST["codigo_postal"];
