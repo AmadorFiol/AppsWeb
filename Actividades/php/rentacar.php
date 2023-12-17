@@ -115,11 +115,11 @@ echo "<table border='1'>";
 		}
 	}
 	elseif ($_POST["codigo_postal"]!="") {
+		echo "<h2>Establecimientos en " . $codigoPostalSeleccionado . "</h2>";
+		echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
 		foreach ($rellenar as $municipio => $establecimientos) {
 			foreach ($establecimientos as $establecimiento) {
 				if (in_array($codigoPostalSeleccionado, $establecimiento['codigo_postal'])) {
-					echo "<h2>Establecimientos en " . $codigoPostalSeleccionado . "</h2>";
-					echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
 					echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
 				}
 			}
