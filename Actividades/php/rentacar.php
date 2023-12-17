@@ -86,23 +86,19 @@ ksort($rellenar)
 <br>
 <?php
 	if (isset($_POST["municipio"])) {
-    $municipioSeleccionado = $_POST["municipio"];
-    $postalcodeSeleccionado = $_POST["codigo_postal"];
-    $nombreSeleccionado = $_POST["nombre"];
-
-    echo "<h2>Establecimientos en " . $municipioSeleccionado . "</h2>";
-    echo "<table border='1'>";
-    echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
-    
-    foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
-        // Filtrar por nombre
-        if ($nombreSeleccionado === "" || stripos($establecimiento['nombre_comercial'], $nombreSeleccionado) !== false) {
-            echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
-        }
-    }
-
-    echo "</table>";
-}
+		$municipioSeleccionado = $_POST["municipio"];
+		$postalcodeSeleccionado = $_POST["codigo_postal"];
+		$nombreSeleccionado =$nombreSeleccionado = strtoupper($_POST["nombre"]);
+		echo "<h2>Establecimientos en " . $municipioSeleccionado . "</h2>";
+		echo "<table border='1'>";
+		echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
+		foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
+			if ($nombreSeleccionado === "" || stripos($establecimiento['nombre_comercial'], $nombreSeleccionado) !== false) {
+				echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
+			}
+		}
+		echo "</table>";
+	}
 ?>
 </body>
 </html>
