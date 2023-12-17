@@ -76,7 +76,10 @@ ksort($rellenar)
 			echo "<option value=\"$cp\">$cp</option>";
 		}
 		echo "</select>";
-$codigoPostalSeleccionado = isset($_POST["codigo_postal"]) ? $_POST["codigo_postal"] : "";
+		
+		$codigoPostalSeleccionado = isset($_POST["codigo_postal"]);
+		$municipioSeleccionado = $_POST["municipio"];
+		$nombreSeleccionado =$nombreSeleccionado = strtoupper($_POST["nombre"]);
 	?>
 	<br>
 	<label for="nombre">Introduce el nombre de la empresa:</label>
@@ -89,11 +92,8 @@ $codigoPostalSeleccionado = isset($_POST["codigo_postal"]) ? $_POST["codigo_post
 echo "<table>";
 echo "<h2>Establecimientos en " . $municipioSeleccionado . "o" . $codigoPostalSeleccionado . "</h2>";
 echo "<table border='1'>";
-echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
 	
 	if (isset($_POST["municipio"])) {
-		$municipioSeleccionado = $_POST["municipio"];
-		$nombreSeleccionado =$nombreSeleccionado = strtoupper($_POST["nombre"]);
 		echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
 		foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
 			echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
