@@ -108,13 +108,11 @@ echo "<table border='1'>";
 
 	//Filtro municipio
 	elseif ($municipioSeleccionado != "") {
-		echo "<h2>Resultados de la búsqueda por nombre:</h2>";
+		echo "<h2>Resultados de la búsqueda por municipio:</h2>";
 		echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
 		foreach ($rellenar as $municipio => $establecimientos) {
 			foreach ($establecimientos as $establecimiento) {
-				if (stripos($establecimiento['nombre_comercial'], $nombreSeleccionado) !== false) {
-					echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
-				}
+				echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
 			}
 		}
 	}
