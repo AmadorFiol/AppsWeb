@@ -17,44 +17,113 @@ if (!$xml = file_get_contents($url)) {
 $fulldata=$xml->rows;
 //var_dump($fulldata);
 $i=0;
-$relleno=array();
-foreach($fulldata->row as $data) {
-	$municipio=(string) $data->municipi;
-	$adressa=$data->adre_a_de_l_establiment;
-	$postalcode = intval(preg_replace('/[^0-9]+/', '', $adressa), 10);
-	$nombre=$data->denominacio_comercial;
+$rellenar = array();
+foreach ($fulldata->row as $data) {
+	$municipio = (string) $data->municipi;
+	$adressa = $data->adre_a_de_l_establiment;
+	preg_match('/\b\d{5}\b/', $adressa, $postalcode);
+	$nombre = $data->denominaci_comercial;
+	$cantidadCoches = (string) $data->nombre_de_vehicles;
+
+	$establecimiento = array(
+		"nombre_comercial" => $nombre,
+		"codigo_postal" => $postalcode,
+		"cantidad_coches" => $cantidadCoches,
+		"direccion" => $adressa
+	);
 	if (isset($rellenar[$municipio])) {
-        	   $rellenar[$municipio] = $postalcode;
-	    } else {
-	        $rellenar[$municipio] = $postalcode;
-	    }
-
+		$rellenar[$municipio][] = $establecimiento;
+	} else {
+		$rellenar[$municipio] = array($establecimiento);
+	}
 }
-var_dump($rellenar);
+//var_dump($rellenar);
 echo "<br>";
-//var_dump($postalcode);
-echo "<br>";
-//var_dump($nombre);
 
-$municipio=isset($_GET["municipio"]) ? $_GET["municipio"] : "";
-$postalcode=isset($_GET["codigo_postal"]) ? $_GET["codigo_postal"] : "";
-$nombre=isset($_GET["nombre"]) ? $_GET["nombre"] : "";
+$municipio=isset($_POST["municipio"]) ? $_POST["municipio"] : "";
+$postalcode=isset($_POST["codigo_postal"]) ? $_POST["codigo_postal"] : "";
+$nombre = isset($_POST["nombre"]) ? $_POST["nombre"] : "";
 
-//ksort($municipio)
+ksort($rellenar)
 ?>
 
-<from action="rentacar.php" method="get">
-	<label for="municipios">Elije el municipio:</label>
-	<select id="municipios" name="municipios">
-		<?php foreach($data->municipi as $relleno[$municipio]){
-			echo "<option value=".$relleno[$municipio].">".$relleno[$municipio]."</option>";
-			}?>
-	</select>
-<?php
-//echo "Municipio: ".$municipio."<br>";
-//echo "Codigo postal: ".$postalcode."<br>";
-//echo "Nombre: ".$nombre."<br>";
-	?>
+<form method="post" action="rentacar.php">
+    <fieldset>
+        <legend>Selecciona un municipio:</legend>
+        <?php
+            foreach ($rellenar as $municipio => $establecimientos) {
+                echo "<input type=\"radio\" id=\"" . $municipio . "\" name=\"municipio\" value=\"" . $municipio . "\">";
+                echo "<label for=\"" . $municipio . "\">" . $municipio . "</label><br>";
+            }
+        ?>
+    </fieldset>
+  <?php
+// Crear un array para almacenar los códigos postales únicos
+$codigos_postales_unicos = array();
 
+// Recorrer los datos y agregar los códigos postales únicos al array
+foreach ($rellenar as $municipio => $establecimientos) {
+    foreach ($establecimientos as $establecimiento) {
+        foreach ($establecimiento['codigo_postal'] as $cp) {
+            // Agregar el código postal al array solo si no está presente
+            if (!in_array($cp, $codigos_postales_unicos)) {
+                $codigos_postales_unicos[] = $cp;
+            }
+        }
+    }
+}
+
+// Ordenar el array de códigos postales de forma numérica
+sort($codigos_postales_unicos, SORT_NUMERIC);
+
+// Imprimir las opciones del select box
+echo "<label for=\"codigo_postal\">Selecciona un código postal:</label>";
+echo "<select name=\"codigo_postal\" id=\"codigo_postal\">";
+echo "<option value=\"\">Selecciona un código postal</option>";
+foreach ($codigos_postales_unicos as $cp) {
+    echo "<option value=\"$cp\">$cp</option>";
+}
+echo "</select>";
+?>
+<label for="nombre">Introduce el nombre de la empresa:</label>
+<input type="text" name="nombre" id="nombre">
+    <input type="submit" value="Filtrar">
+</form>
+<br>
+	Nombre de la empresa:<input type="text" name="nombre" value="<?php echo $nombre; ?>">
+<?php
+if (isset($_POST["municipio"])) {
+    $municipioSeleccionado = $_POST["municipio"];
+    $postalcodeSeleccionado = $_POST["codigo_postal"];
+
+    echo "<h2>Establecimientos en " . $municipioSeleccionado . "</h2>";
+    echo "<table border='1'>";
+    echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
+    
+    foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
+        echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
+    }
+
+    echo "</table>";
+}
+	if (isset($_POST["municipio"])) {
+    $municipioSeleccionado = $_POST["municipio"];
+    $postalcodeSeleccionado = $_POST["codigo_postal"];
+    $nombreSeleccionado = $_POST["nombre"];
+
+    echo "<h2>Establecimientos en " . $municipioSeleccionado . "</h2>";
+    echo "<table border='1'>";
+    echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
+    
+    foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
+        // Filtrar por nombre
+        if ($nombreSeleccionado === "" || stripos($establecimiento['nombre_comercial'], $nombreSeleccionado) !== false) {
+            echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
+        }
+    }
+
+    echo "</table>";
+}
+?>
 </body>
 </html>
