@@ -89,6 +89,7 @@ $codigoPostalSeleccionado = isset($_POST["codigo_postal"]) ? $_POST["codigo_post
 
 echo "<h2>Establecimientos en " . $municipioSeleccionado . "</h2>";
 echo "<table border='1'>";
+echo "<h2>Establecimientos en " . $municipioSeleccionado . "o" . $codigoPostalSeleccionado . "</h2>";
 echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>"
 
 foreach ($rellenar as $municipio => $establecimientos) {
@@ -103,15 +104,13 @@ foreach ($rellenar as $municipio => $establecimientos) {
 		$municipioSeleccionado = $_POST["municipio"];
 		$postalcodeSeleccionado = $_POST["codigo_postal"];
 		$nombreSeleccionado =$nombreSeleccionado = strtoupper($_POST["nombre"]);
-		echo "<h2>Establecimientos en " . $municipioSeleccionado . "</h2>";
-		echo "<table border='1'>";
 		echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
 		foreach ($rellenar[$municipioSeleccionado] as $establecimiento) {
 			echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
 		}
-		echo "</table>";
 	}
  	
 ?>
+echo "</table>";
 </body>
 </html>
