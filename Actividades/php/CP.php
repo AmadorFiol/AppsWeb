@@ -107,7 +107,7 @@ echo "<table border='1'>";
 	}
 
 	//Filtro municipio
-	elseif ($nombreSeleccionado != "") {
+	elseif ($municipioSeleccionado != "") {
 		echo "<h2>Resultados de la búsqueda por nombre:</h2>";
 		echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
 		foreach ($rellenar as $municipio => $establecimientos) {foreach ($establecimientos as $establecimiento) {
