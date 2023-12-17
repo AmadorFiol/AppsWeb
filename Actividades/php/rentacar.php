@@ -99,12 +99,11 @@ echo "<table border='1'>";
 		foreach ($rellenar as $municipio => $establecimientos) {
 			foreach ($establecimientos as $establecimiento) {
 				if (stripos($establecimiento['nombre_comercial'], $_POST["nombre_comercial"]) !== false) {
-          				echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
-					}
+					echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
+				}
 			}
 		}
 	}
-
 
 	//Filtro municipio
 	elseif ($_POST["municipio"]!="") {
