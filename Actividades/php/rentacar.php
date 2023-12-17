@@ -108,8 +108,8 @@ foreach ($rellenar as $municipio => $establecimientos) {
 			echo "<tr><td>" . $establecimiento['nombre_comercial'] . "</td><td>" . $establecimiento['cantidad_coches'] . "</td><td>" . $establecimiento['direccion'] . "</td></tr>";
 		}
 	}
- 	
+
+echo "</table>"; 	
 ?>
-</table>
 </body>
 </html>
