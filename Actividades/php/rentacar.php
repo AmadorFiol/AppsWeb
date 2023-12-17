@@ -110,6 +110,6 @@ foreach ($rellenar as $municipio => $establecimientos) {
 	}
  	
 ?>
-echo "</table>";
+</table>
 </body>
 </html>
