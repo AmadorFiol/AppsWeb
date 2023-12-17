@@ -76,6 +76,7 @@ ksort($rellenar)
 			echo "<option value=\"$cp\">$cp</option>";
 		}
 		echo "</select>";
+$codigoPostalSeleccionado = isset($_POST["codigo_postal"]) ? $_POST["codigo_postal"] : "";
 	?>
 	<br>
 	<label for="nombre">Introduce el nombre de la empresa:</label>
@@ -85,6 +86,7 @@ ksort($rellenar)
 </form>
 <br>
 <?php
+
 echo "<table>";
 echo "<tr><th>Nombre Comercial</th><th>Dirección</th><th>Cantidad de Coches</th></tr>";
 
