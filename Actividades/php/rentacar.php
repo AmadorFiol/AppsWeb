@@ -87,10 +87,8 @@ $codigoPostalSeleccionado = isset($_POST["codigo_postal"]) ? $_POST["codigo_post
 <br>
 <?php
 echo "<table>";
-
-echo "<h2>Establecimientos en " . $municipioSeleccionado . "</h2>";
-echo "<table border='1'>";
 echo "<h2>Establecimientos en " . $municipioSeleccionado . "o" . $codigoPostalSeleccionado . "</h2>";
+echo "<table border='1'>";
 echo "<tr><th>Nombre Comercial</th><th>Cantidad de coches disponibles</th><th>Dirección</th></tr>";
 
 foreach ($rellenar as $municipio => $establecimientos) {
