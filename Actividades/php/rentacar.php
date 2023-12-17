@@ -90,7 +90,7 @@ ksort($rellenar)
 <br>
 <?php
 echo "<table>";
-echo "<h2>Establecimientos en " . $municipioSeleccionado . "o" . $codigoPostalSeleccionado . "</h2>";
+echo "<h2>Establecimientos en " . $municipioSeleccionado . " o " . $codigoPostalSeleccionado . "</h2>";
 echo "<table border='1'>";
 	
 	if (isset($_POST["municipio"])) {
