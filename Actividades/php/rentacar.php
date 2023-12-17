@@ -90,7 +90,6 @@ echo "</select>";
     <input type="submit" value="Filtrar">
 </form>
 <br>
-	Nombre de la empresa:<input type="text" name="nombre" value="<?php echo $nombre; ?>">
 <?php
 if (isset($_POST["municipio"])) {
     $municipioSeleccionado = $_POST["municipio"];
