@@ -89,8 +89,6 @@ ksort($rellenar)
 </form>
 <br>
 <?php
-echo "<table>";
-
 echo "<table border='1'>";
 
 
