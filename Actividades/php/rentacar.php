@@ -79,13 +79,15 @@ ksort($rellenar)
 		
 		$codigoPostalSeleccionado = $_POST["codigo_postal"];
 		$municipioSeleccionado = $_POST["municipio"];
-		$nombreSeleccionado =$nombreSeleccionado = strtoupper($_POST["nombre"]);
 	?>
 	<br>
 	<label for="nombre">Introduce el nombre de la empresa:</label>
 	<input type="text" name="nombre" id="nombre">
 	<br>
 	<input type="submit" value="Filtrar">
+	<?php
+	$nombreSeleccionado =$nombreSeleccionado = strtoupper($_POST["nombre"]);
+	?>
 </form>
 <br>
 <?php
