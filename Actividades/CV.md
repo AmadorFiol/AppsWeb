@@ -1,6 +1,6 @@
 # Curriculum
 
-![](https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo.png){ width=200}
+![](https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo.png){width='200px'}
 
 ## Amador Fiol Borel
 
